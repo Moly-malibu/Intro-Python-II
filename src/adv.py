@@ -43,15 +43,16 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 print(type(room['foyer']))
+
 # Main
 # Write a loop that:
 if __name__=="__main__": 
-    name = input("Input your name:")  # Make a new player object that is currently in the 'outside' room.
-    Player = Player(name, room["outside"]) # * Prints the current room name
+    name = input("Input your name:")  # * Prints the current room name
+    player = Player(name, room["outside"]) # Make a new player object that is currently in the 'outside' room.
     
     for i in range(3):
         print(',')
-        sleep(0.25)
+        sleep(0.15)
     while True:
         print('', '---', '', sep='\n')
         print(player.current_room.name.upper())
@@ -60,7 +61,7 @@ if __name__=="__main__":
 # * Prints the current description (the textwrap module might be useful here).
 
         if player.current_room.items:
-            print('\n Items in view: ')
+            print('\n Items: ')
             for item in player.current_room.items:
                 print(f' {item.name}: {item.description}') 
         current_desc = input('> ').lower().split(' ')
@@ -85,7 +86,7 @@ if __name__=="__main__":
                         drop_idy = idy
                         drop_item = item
             if not drop_item:
-                print('You do not have that Item')
+                print('out Item')
             else:
                 player.current_room.items.append(
                     player.items.pop(idy)
@@ -98,7 +99,7 @@ if __name__=="__main__":
                     take_idy = idy
                     take_item = item
             if not take_item:
-                print("Item not in Room.")
+                print("Room out items.")
             else:
                 player.items.append(
                     player.current_room.items.pop(idy)
@@ -109,12 +110,12 @@ if __name__=="__main__":
                 for item in player.items:
                     print(f' {item.name}: {item.description}')
             else:
-                print("You have no Items")
+                print("Out Items")
 
 # If the user enters "q", quit the game.        
         elif verb == 'q':
             break
         else:
-            print('Enter a direction (n/e/s/w or action (take/drop/inventory)')
-        input('\n -- Ener any Key to Continue--')
+            print('Direction: Position (n/e/s/w) or take/drop/inventory')
+        input('\n -- Enter any Key to Continue--')
         continue
