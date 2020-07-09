@@ -5,24 +5,24 @@ from time import sleep
 
 class Player:
     """what room they are in currently."""
-    def __init__(self, name, current_room, items=None):
+    def __init__(self, name, adventure_room, items=None):
         self.name = name
-        self.current_room = current_room
+        self.adventure_room = adventure_room
         self.items = []
 
     def move(self, direction):
 
-        if direction == 'n' and self.current_room.n_to:
-            self.current_room = self.current_room.n_to
+        if direction == 'n' and self.adventure_room.n_to:
+            self.adventure_room = self.adventure_room.n_to
 
-        elif direction == 'e' and self.current_room.e_to:
-            self.current_room = self.current_room.e_to
+        elif direction == 'e' and self.adventure_room.e_to:
+            self.adventure_room = self.adventure_room.e_to
         
-        elif direction == 's' and self.current_room.s_to:
-            self.current_room = self.current_room.s_to
+        elif direction == 's' and self.adventure_room.s_to:
+            self.adventure_room = self.adventure_room.s_to
 
-        elif direction == 'w' and self.current_room.w_to:
-            self.current_room = self.current_room.w_to
+        elif direction == 'w' and self.adventure_room.w_to:
+            self.adventure_room = self.adventure_room.w_to
         
         else:
             print('Nothin There.')
