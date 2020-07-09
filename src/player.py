@@ -18,10 +18,10 @@ class Player:
         elif direction == 'e' and self.current_room.e_to:
             self.current_room = self.current_room.e_to
         
-        elif direction == 'e' and self.current_room.s_to:
+        elif direction == 's' and self.current_room.s_to:
             self.current_room = self.current_room.s_to
 
-        elif direction == 'e' and self.current_room.w_to:
+        elif direction == 'w' and self.current_room.w_to:
             self.current_room = self.current_room.w_to
         
         else:
